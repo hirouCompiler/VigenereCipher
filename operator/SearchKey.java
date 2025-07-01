@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import core.Decrypter;
+import core.Processor;
 import core.Converter;
 
 //暗号文と平文に含まれる単語のヒントをもとに、鍵を探し出す
@@ -13,12 +13,18 @@ public class SearchKey {
         //入力受付
         BufferedReader buf=new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("暗号文を入力してください(大文字)");
+        System.out.println("Enter cipher text. (English capital letters)");
         String cipher=buf.readLine();
+        System.out.println();
 
-        System.out.println("平文に含まれる文字列を入力してください(大文字)");
+        System.out.println("Enter the words contained in the plain text. (English capital letters)");
+        System.out.println("Note, must be longer than the key.");
         String hint=buf.readLine();
+        System.out.println();
 
+        System.out.println("Of the multiple lines presented, the correct answer is one.");
+        System.out.println("The key is looped in the correct row.");
+        System.out.println();
 
         //アルファベットを数字に置き換え
         Converter conv=new Converter();
@@ -27,15 +33,12 @@ public class SearchKey {
 
 
         //Decrypterクラスのsearchを使い、暗号文の先頭から順に、平文に含まれる単語を繰り返し引く。
-        Decrypter decrypter = new Decrypter();
-        decrypter.search(cipherIntArr,hintIntArr);
+        Processor processor = new Processor();
+        processor.search(cipherIntArr,hintIntArr);
     }
 }
 
 /*
-AYETWFMBWGXAXRMBW
-STUDENT
-
-CIPGRGPBLVPPJQPHH
-CHIBA
+ *VSDQEVTAAVBJPACJAGHKHPZHM
+ *WITHMEIFYOU
  */
