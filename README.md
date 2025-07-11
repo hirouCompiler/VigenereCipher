@@ -1,18 +1,12 @@
-## Getting Started
+開発環境：vscode
+言語:java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+使用方法
+src以下にはoperatorとcoreの二つのディレクトリがある。
+coreは実際の処理をまとめたクラスが含まれている。
+operatorにはcore以下のクラスを呼び出して動かすためのメインクラスが含まれている。
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+operatorのクラスは、DecryptCipher.java EncryptText.java SearchKey.java の3つ。
+DecryptCipher.javaは、入力されたビジュネル暗号文と鍵を元に復号して、平文を出力するメインクラス。
+EncryptText.javaは、入力された平文と鍵を元に暗号化して、ビジュネル暗号文を出力するメインクラス。
+SearchKey.javaは、入力されたビジュネル暗号文と平文に含まれる単語を元に鍵候補を出力するメインクラス。
